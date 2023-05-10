@@ -16,6 +16,6 @@ func Run() {
 	server := vk.New()
 	mux.HandleFunc("/", server.Check(str))
 
-	err := http.ListenAndServe(":4000", mux)
+	err := http.ListenAndServe(":80", mux)
 	log.Fatal(err)
 }
