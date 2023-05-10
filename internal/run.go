@@ -9,7 +9,7 @@ import (
 
 func Run() {
 	var str string // Строка, которую должен вернуть сервер
-	flag.StringVar(&str, "c", 0, "check server")
+	flag.StringVar(&str, "c", "", "check server")
 	flag.Parse()
 
 	mux := http.NewServeMux()
