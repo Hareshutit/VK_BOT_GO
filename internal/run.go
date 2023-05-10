@@ -2,15 +2,14 @@ package internal
 
 import (
 	"VK_BOT_GO/internal/delivery/http/vk"
-	"flag"
 	"log"
 	"net/http"
+	"os"
 )
 
 func Run() {
 	var str string // Строка, которую должен вернуть сервер
-	flag.StringVar(&str, "c", "", "check server")
-	flag.Parse()
+	str = os.Getenv("STR")
 
 	mux := http.NewServeMux()
 	server := vk.New()
