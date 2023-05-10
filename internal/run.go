@@ -5,17 +5,16 @@ import (
 	"flag"
 	"log"
 	"net/http"
-	"strconv"
 )
 
 func Run() {
-	var str int // Строка, которую должен вернуть сервер
-	flag.IntVar(&str, "c", 0, "check server")
+	var str string // Строка, которую должен вернуть сервер
+	flag.StringVar(&str, "c", 0, "check server")
 	flag.Parse()
 
 	mux := http.NewServeMux()
 	server := vk.New()
-	mux.HandleFunc("/", server.Check(strconv.Itoa(str)))
+	mux.HandleFunc("/", server.Check(str))
 
 	err := http.ListenAndServe(":4000", mux)
 	log.Fatal(err)
